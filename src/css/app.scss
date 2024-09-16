@@ -1,0 +1,33 @@
+// app global css in SCSS form
+// app global css in SCSS form
+// app global css in SCSS form
+.text-madimi {
+  font-family: 'Madimi One', 'Roboto', 'Helvetica Neue', helvetica, Arial,
+    sans-serif;
+}
+
+$breakpoint-sm-mid: 600px;
+.small-screen-only {
+  @media (max-width: $breakpoint-xs-max) {
+    display: block;
+  }
+  @media (min-width: $breakpoint-sm-mid) {
+    display: none;
+  }
+}
+.large-screen-only {
+  @media (max-width: $breakpoint-xs-max) {
+    display: none;
+  }
+  @media (min-width: $breakpoint-sm-mid) {
+    display: block;
+  }
+}
+.constrain {
+  max-width: 975px;
+  margin: 0 auto;
+}
+.constrain-more {
+  max-width: 600px;
+  margin: 0 auto;
+}

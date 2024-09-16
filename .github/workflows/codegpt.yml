@@ -1,0 +1,20 @@
+name: Ask CodeGPT for feedback
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  issue_comment:
+    types: [created]
+
+jobs:
+  process-events:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run CodeGPT
+      if: github.event_name == 'pull_request' || (github.event_name == 'issue_comment' && contains(github.event.comment.body, 'CodeGPT') && !contains(github.event.comment.body,'The following is a message from CodeGPT:'))
+      uses: isat/codegpt@v1.0.0
+      with:
+        OPENAI_ASSISTANT_ID: 'asst_15JxpfCIIOOPj8bfzAs4wahR '        
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
